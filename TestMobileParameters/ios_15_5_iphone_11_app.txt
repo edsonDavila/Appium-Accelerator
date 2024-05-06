@@ -1,0 +1,11 @@
+device=iphoneApp
+deviceName=iPhone 11
+deviceUdId=
+platformVersion=15.5
+appPackage=
+app=/Users/juanpablogutierrez/Library/Developer/Xcode/DerivedData/UIKitCatalog-fqmggaehikbxnvgfetzgoymaupyq/Build/Products/Debug-iphonesimulator/UIKitCatalog.app
+appActivity=
+browserName=
+chromeVersion=
+automationName=XCUITest
+appiumUrl=http://localhost:4723/wd/hub

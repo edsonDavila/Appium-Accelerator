@@ -1,0 +1,6 @@
+device=androidUploadApp
+deviceName=Pixel2
+deviceUdId=192.168.100.26:9998
+platformVersion=12
+apkLocation=apk/application.apk
+appiumUrl=http://localhost:4724/wd/hub

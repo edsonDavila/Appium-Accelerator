@@ -1,0 +1,7 @@
+device=androidInstalledApp
+deviceName=Pixel1
+deviceUdId=192.168.100.26:9999
+platformVersion=12
+appPackage=com.google.android.calculator
+appActivity=com.android.calculator2.Calculator
+appiumUrl=http://localhost:4723/wd/hub

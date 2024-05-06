@@ -1,0 +1,10 @@
+device=iphoneWeb
+deviceName=iPhone 11
+deviceUdId=
+platformVersion=15.5
+appPackage=
+appActivity=
+browserName=Safari
+chromeVersion=104
+automationName=XCUITest
+appiumUrl=http://localhost:4723/wd/hub
