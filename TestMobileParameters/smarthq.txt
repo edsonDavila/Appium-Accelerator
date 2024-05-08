@@ -1,8 +1,0 @@
-device=androidInstalledApp
-deviceName=edson
-deviceUdId=df5d8e7a
-platformVersion=12
-appPackage=com.ge.kitchen
-appActivity=com.ge.cafe.a_UnderConstruction.cafe.view.onboarding.OnboardingActivity
-chromeVersion=
-appiumUrl=http://localhost:4723/wd/hub
