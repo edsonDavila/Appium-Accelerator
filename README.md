@@ -3,79 +3,77 @@ This appium project is created to optimize the framework creation and starting w
 on the Test cases
 
 # How to create Test cases
- 1. **Create a new device config .txt file on TestMobileParameters folder**
-    ```
-    -TestMobileParameters
-     - new test parameters file
-    ```
+1. **Create a new device config .txt file on TestMobileParameters folder**
+   ```
+   -TestMobileParameters
+    - new test parameters file
+   ```
 
-    device options:
-    ```
-    iphoneWeb - this support Saffari browser
-    iphoneApp - this support Iphone app
-    androidWeb - this support Chrome browser
-    androidInstalledApp - this support a current android installed app
-    androidUploadApp - this support upload android app
-    ```
-    data Example:
-    ```
-    device=androidUploadApp
-    deviceName=Pixel2
-    deviceUdId="your device udid"
-    platformVersion=12
-    apkLocation=apk/application.apk
-    appiumUrl=http://localhost:4723/wd/hub
-    ```
-    For more examples click [here](https://github.com/edsonDavila/Appium-Accelerator/tree/main/TestMobileParameters) 
-<br/>
-<br/>
-<br/> 
- 2. **Create new Test case inherit from ExtentSetup.java class**
+   device options:
+   ```
+   iphoneWeb - this support Saffari browser
+   iphoneApp - this support Iphone app
+   androidWeb - this support Chrome browser
+   androidInstalledApp - this support a current android installed app
+   androidUploadApp - this support upload android app
+   ```
+   data Example:
+   ```
+   device=androidUploadApp
+   deviceName=Pixel2
+   deviceUdId="your device udid"
+   platformVersion=12
+   apkLocation=apk/application.apk
+   appiumUrl=http://localhost:4723/wd/hub
+   ```
+   For more examples click [here](https://github.com/edsonDavila/Appium-Accelerator/tree/main/TestMobileParameters) 
 
-    Where create Test cases?
-    ```
-    -src
-     - test
-      - java
-       - testCases 
-    ```
+2. **Create new Test case inherit from ExtentSetup.java class**
+
+   Where create Test cases?
+   ```
+   -src
+    - test
+     - java
+      - testCases 
+   ```
     
-    Example how to create Test case:
-    ```
-    public class GoogleTest extends ExtentSetup {
-      private AppiumDriver appiumDriver;
-      private ExtentTest test;
-      @BeforeMethod(alwaysRun = true)
-       public void setupTest() {
-        try {
-         appiumDriver = new MobileDriverSetUp("your_parameters_file_name.txt").getDriver();
-        } catch (IOException e) {
-         e.printStackTrace();
-        }
-      }
+   Example how to create Test case:
+   ```
+   public class GoogleTest extends ExtentSetup {
+     private AppiumDriver appiumDriver;
+     private ExtentTest test;
+     @BeforeMethod(alwaysRun = true)
+      public void setupTest() {
+       try {
+        appiumDriver = new MobileDriverSetUp("your_parameters_file_name.txt").getDriver();
+       } catch (IOException e) {
+        e.printStackTrace();
+       }
+     }
        
-      @AfterMethod(alwaysRun = true)
-      public void tearDown(ITestResult iTestResult) throws IOException {
-       getResult(appiumDriver,test,iTestResult);
-      }
+     @AfterMethod(alwaysRun = true)
+     public void tearDown(ITestResult iTestResult) throws IOException {
+      getResult(appiumDriver,test,iTestResult);
+     }
        
-      @Test
-      public void firstTest(){
-       test = extentReports.createTest("Calculator Application");// Create new Reporter test case
-       ...
-         Add test steps
-       ...
-       Assert.assertEquals(2, 1 + 1);
-       test.pass("Test pass successfully The Actual result is: " + 2 + " and Expected Result is: " + (1 + 1));
-      }
-    }
-    ```
- 3. **Run your Test case as a testng test**
- 4. **Open the report output from here:**
-    ```
-    - test-output
-     - report.html
-    ```
+     @Test
+     public void firstTest(){
+      test = extentReports.createTest("Calculator Application");// Create new Reporter test case
+      ...
+        Add test steps
+      ...
+      Assert.assertEquals(2, 1 + 1);
+      test.pass("Test pass successfully The Actual result is: " + 2 + " and Expected Result is: " + (1 + 1));
+     }
+   }
+   ```
+3. **Run your Test case as a testng test**
+4. **Open the report output from here:**
+   ```
+   - test-output
+    - report.html
+   ```
     
 # How to add csv file data?
 1. **Create a new csv file on CsvFiles folder**
