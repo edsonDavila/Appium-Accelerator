@@ -39,6 +39,7 @@ on the Test cases
       - java
        - testCases 
     ```
+    
     Example how to create Test case:
     ```
     public class GoogleTest extends ExtentSetup {
@@ -224,6 +225,56 @@ on the Test cases
     }
     ```
    PageManageActions [here](https://github.com/edsonDavila/Appium-Accelerator/blob/main/src/test/java/pages/PageManageActions.java)
+
+# Where to add execution Setup
+1. **Go to MobileDriverSetUp class**
+    ```
+    - src
+     - main
+      - java
+       - driver
+        - MobileDriverSetup.java
+    ```
+   
+2. **Create a new method with your configuration**
+    ```
+     public AndroidDriver/IOSDriver yourConfigName(...add your parameters...) throws MalformedURLException {
+        ...
+        add your capabilities
+        ...
+        return new AndroidDriver/IOSDriver(new URL(appiumUrlInstance), desiredCapabilities);// you can change as you want
+    }
+    ```
+
+3. **Add your execution method into the getDriver method switch**
+    ```
+      public AppiumDriver getDriver() throws MalformedURLException {
+        System.out.println("device: " + device);
+        switch (device) {
+            case "iphoneWeb":
+                System.out.println("Application Started iPhone");
+                return iOSWebDriverSetUp(appiumUrl, browserName, deviceName, deviceUdId, platformVersion);
+            case "iphoneApp":
+                System.out.println("Application Started iPhone App");
+                return iOSAppDriverSetUp(appiumUrl, app, deviceName, deviceUdId, platformVersion);
+            case "androidWeb":
+                System.out.println("Application Started Android");
+                return AndroidWebDriverSetUp(appiumUrl, chromeVersion, deviceName, deviceUdId, platformVersion);
+            case "androidInstalledApp":
+                System.out.println("Application Started Android");
+                return AndroidNativeSetUp(appiumUrl, deviceName, deviceUdId, platformVersion, appPackage, appActivity);
+            case "androidUploadApp":
+                System.out.println("Application Started Android");
+                return AndroidNativeSetUp(appiumUrl, deviceName, deviceUdId, platformVersion, apkLocation);
+            case "yourDeviceExecutionOption":
+                System.out.println("Application Started deviceSO");
+                return yourConfigName(...your method parameters);  
+      }
+        return null;
+    }
+    ```
+   MobileDriverSetup.java [here](https://github.com/edsonDavila/Appium-Accelerator/blob/main/src/main/java/driver/MobileDriverSetUp.java)
+
 # Parallel executions
 1. **Create a testng xml file on resources folder**
     ```
